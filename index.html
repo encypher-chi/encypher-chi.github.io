@@ -37,7 +37,7 @@
   </p>
 </section>
 
-<section class="section-wrap">
+<section class="section-wrap wide">
   <h2>Public Live Performance</h2>
   <p>
     Six dancers performed with Encypher in front of an audience of approximately 300, with the screen removed and
@@ -50,16 +50,16 @@
   </p>
 
   <div class="interactive-container">
-    <div>
-      <div class="video-card">
-        <video id="perf" controls playsinline preload="metadata" poster="images/performance_poster.jpg">
-          <source src="videos/performance.mp4" type="video/mp4" />
-        </video>
-      </div>
-      <p class="video-note">Edited excerpt: segments where the stage lighting or audio dropped out have been removed. Blurred throughout for anonymity.</p>
+    <div class="video-card">
+      <video id="perf" controls playsinline preload="metadata" poster="images/performance_poster.jpg">
+        <source src="videos/performance.mp4" type="video/mp4" />
+      </video>
     </div>
-    <div class="chapter-list" id="chapter-list"></div>
+    <div class="chapter-wrap">
+      <div class="chapter-list" id="chapter-list"></div>
+    </div>
   </div>
+  <p class="video-note">Edited excerpt: segments where the stage lighting or audio dropped out have been removed. Blurred throughout for anonymity.</p>
 </section>
 
 <footer>
@@ -72,29 +72,29 @@
   const groups = [
     { title: "Staggered Entries", chapters: [
       { t: 0, label: "Solo opening",
-        html: `<strong>Solo opening:</strong> One dancer freestyles alone in the orange zone, carrying Afrohouse. The agreed structure was a staggered sequence of entries, beginning with Afrohouse and ending with dance jazz. Within that structure, all movement was improvised to the improvised music.<br>${ref("7.1: Setup")}` },
+        html: `<strong>Solo opening:</strong> The agreed structure was a staggered sequence of entries, beginning with Afrohouse and ending with dance jazz: one dancer freestyled alone, a second joined so that two musical elements blended, the first stepped out, and so on, building until every dancer was on stage and every element sounded together. Within that structure, all movement was improvised to the improvised music. The first dancer, in the orange zone, carried Afrohouse.<br>${ref("7.1: Setup")}` },
       { t: 13, label: "Two elements blend",
-        html: `<strong>Two elements blend:</strong> A second dancer joins in the yellow zone with djembe, so that two musical elements blend. Each dancer's COMAmp is mapped to the weight of a prompt representing their assigned musical element, so the mix follows how each dancer moves.<br>${ref("4.2: Embodied Collaborative Steering")}` },
+        html: `<strong>Two elements blend:</strong> A second dancer joined in the yellow zone with djembe. Each dancer's COMAmp is then mapped to the weight of a prompt representing their assigned musical element, and these weights sum across all participants, creating a collective steering signal where the aggregate energy of the group shapes the generation in real time.<br>${ref("4.2: Embodied Collaborative Steering")}` },
       { t: 21, label: "First dancer steps out",
-        html: `<strong>First dancer steps out:</strong> The first dancer leaves the circle and the second carries on alone, and so on, building until every dancer is on stage and every element sounds together.<br>${ref("7.1: Setup")}` },
+        html: `<strong>First dancer steps out:</strong> The first dancer stepped out, and the second carried on alone. Preparation consisted of a single one-hour rehearsal devoted to blocking rather than choreography.<br>${ref("7.1: Setup")}` },
       { t: 29, label: "One element per dancer",
-        html: `<strong>One element per dancer:</strong> The dancer in the blue zone carries the 808 drum machine. (The Hip-Hop dancer's entry, in the purple zone, fell in a segment removed for a lighting failure.) Each zone was pre-assigned a musical element (dance jazz, Afrohouse, djembe, Hip-Hop, 808 drum machine, and classical piano), matched where possible to the performing dancers' own interests and training, so that each carried an element close to their own style.<br>${ref("7.1: Setup")}` },
+        html: `<strong>One element per dancer:</strong> The dancer in the blue zone carried the 808 drum machine; the Hip-Hop dancer's entry, in the purple zone, fell in a segment removed because the lighting failed. The performance used the same six stationary zones as the earlier deployments, each pre-assigned a musical element—dance jazz, Afrohouse, djembe, Hip-Hop, 808 drum machine, and classical piano—selected for how well they layered—a judgment informed by the co-design sessions and the museum event—and matched where possible to the performing dancers' own interests and training, so that each carried an element close to their own style.<br>${ref("7.1: Setup")}` },
       { t: 39, label: "Light as feedback",
-        html: `<strong>Light as feedback:</strong> The classical piano dancer enters the pink zone. The screen was removed entirely. Each dancer's COMAmp energy is sent over OSC to the venue's lighting console, which maps it to the intensity of that dancer's light. A dancer charging their zone brightens the pool of light they stand in, realizing the ambient-feedback direction that the museum event had only approximated.<br>${ref("7.1: Setup")}${ref("6: Public Museum Event")}` },
+        html: `<strong>Light as feedback:</strong> The classical piano dancer entered the pink zone. The screen, however, was removed entirely. Each zone was lit from above by a colored stage light, and the Max/MSP hub sent each dancer's COMAmp energy over OSC (via Ethernet) to the venue's lighting console (ETC Eos), which mapped it to the intensity of that dancer's light. A dancer charging their zone therefore brightened the pool of light they stood in, realizing the ambient-feedback direction that the museum event had only approximated.<br>${ref("7.1: Setup")}${ref("6: Public Museum Event")}` },
     ]},
     { title: "Filling the Cypher", chapters: [
       { t: 61, label: "Five dancers on stage",
-        html: `<strong>Five dancers on stage:</strong> Afrohouse (orange), djembe (yellow), Hip-Hop (purple), 808 drum machine (blue), and classical piano (pink) now sound together. Without a screen there was no shared object to watch. Dancers oriented toward one another and toward the light at their feet, and the mutual attention that the screen had partly displaced during the user study was visibly restored.<br>${ref("7.2: Observations")}${ref("5.5: Qualitative Analysis")}` },
+        html: `<strong>Five dancers on stage:</strong> Afrohouse (orange), djembe (yellow), Hip-Hop (purple), 808 drum machine (blue), and classical piano (pink) sounded together. Without a screen there was no shared object to watch. Dancers oriented toward one another and toward the light at their feet, and the mutual attention that the screen had partly displaced during the user study was visibly restored.<br>${ref("7.2: Observations")}${ref("5.5: Qualitative Analysis")}` },
       { t: 92, label: "Sixth dancer joins",
-        html: `<strong>Sixth dancer joins:</strong> The first author joins for the final section in the green zone, bringing in dance jazz, the last element of the sequence.<br>${ref("7.1: Setup")}` },
+        html: `<strong>Sixth dancer joins:</strong> Six dancers performed: five members of the local dance community and the first author, who joined for the final section. The first author entered the green zone with dance jazz, the last element of the sequence.<br>${ref("7.1: Setup")}` },
     ]},
     { title: "Everyone Together", chapters: [
       { t: 113, label: "Every element sounding",
-        html: `<strong>Every element sounding:</strong> With all six dancers on stage and every element sounding, each dancer's style remained visible within the blended music rather than being flattened by it. Because each element matched its dancer's training, the staggered entries read as a meeting of dance backgrounds as much as of musical genres.<br>${ref("7.2: Observations")}` },
+        html: `<strong>Every element sounding:</strong> Because each element matched its dancer's training, the staggered entries read as a meeting of dance backgrounds as much as of musical genres, and in the final section, with all six dancers on stage and every element sounding, each dancer's style remained visible within the blended music rather than being flattened by it.<br>${ref("7.2: Observations")}` },
       { t: 125, label: "Energy on the body",
-        html: `<strong>Energy on the body:</strong> The pools of colored light made each dancer's contribution legible to the audience in a way the screen never could, since energy showed up on the body itself.<br>${ref("7.2: Observations")}${ref("8.2: Mapping as Social Design")}` },
+        html: `<strong>Energy on the body:</strong> The pools of colored light also made each dancer's contribution legible to the audience in a way the screen never could, since energy showed up on the body itself.<br>${ref("7.2: Observations")}${ref("8.2: Mapping as Social Design")}` },
       { t: 147, label: "Blackout",
-        html: `<strong>Blackout:</strong> The lights fade as the piece ends. In the live performance, the venue itself became part of the feedback loop, a direction we develop as a stage that listens to itself.<br>${ref("9: Limitations and Future Work")}` },
+        html: `<strong>Blackout:</strong> The lights faded as the piece ended. In the live performance, the venue itself became part of the feedback loop: dancers moved, the camera sensed, the music and the stage lights responded, and the dancers moved differently in turn.<br>${ref("9: Limitations and Future Work")}` },
     ]},
   ];
 
