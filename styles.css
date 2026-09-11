@@ -47,16 +47,16 @@ header p.subtitle {
 }
 
 .author-links a {
-  color: #b000c2;
+  color: #007885;
   text-decoration: none;
   border-bottom: 1px solid transparent;
   transition: border-color 0.15s;
 }
-.author-links a:hover { border-color: #b000c2; }
+.author-links a:hover { border-color: #007885; }
 
 /* ── Section wrappers ── */
 .section-wrap {
-  max-width: 900px;
+  max-width: 1180px;
   margin: 0 auto 48px;
   padding: 0 24px;
 }
@@ -85,7 +85,6 @@ header p.subtitle {
   margin-top: 20px;
 }
 
-.section-wrap.wide { max-width: 1180px; }
 
 .chapter-wrap { position: relative; }
 
@@ -111,8 +110,8 @@ header p.subtitle {
 
 /* ── Chapter description box ── */
 #chapter-description {
-  background: #fcf0fd;
-  border-left: 3px solid #e001f8;
+  background: #eefcfe;
+  border-left: 3px solid #50e3f2;
   padding: 14px 16px;
   border-radius: 4px;
   font-size: 0.97rem;
@@ -151,7 +150,7 @@ header p.subtitle {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.09em;
-  color: #b000c2;
+  color: #007885;
   margin-bottom: 10px;
 }
 
@@ -173,13 +172,13 @@ header p.subtitle {
 }
 
 .time-btn:hover {
-  background: #f8e6fb;
-  color: #b000c2;
+  background: #e3fafc;
+  color: #007885;
 }
 
 .time-btn.active {
-  background: #f1d0f7;
-  color: #9600a6;
+  background: #c9f3f7;
+  color: #006670;
   font-weight: 600;
 }
 
@@ -198,8 +197,8 @@ header p.subtitle {
 
 .time-btn:hover .timestamp,
 .time-btn.active .timestamp {
-  background: #f1d0f7;
-  color: #9600a6;
+  background: #c9f3f7;
+  color: #006670;
 }
 
 /* ── Footer ── */
@@ -243,8 +242,8 @@ footer {
   display: inline-block;
   font-size: 0.75rem;
   font-weight: 600;
-  color: #9600a6;
-  background: #f5dcf9;
+  color: #006670;
+  background: #d7f6f9;
   border-radius: 999px;
   padding: 1px 9px;
   margin: 8px 6px 0 0;
