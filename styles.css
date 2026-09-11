@@ -9,7 +9,7 @@ body {
 
 /* ── Header ── */
 header {
-  max-width: 900px;
+  max-width: 1180px;
   margin: 0 auto;
   padding: 56px 24px 32px;
   text-align: center;
@@ -26,7 +26,7 @@ header h2.paper-title {
   font-size: 1.1rem;
   font-weight: 400;
   color: #444;
-  max-width: 680px;
+  max-width: none;
   margin: 0 auto 18px;
   line-height: 1.5;
 }
