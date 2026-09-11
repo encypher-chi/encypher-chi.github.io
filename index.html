@@ -38,13 +38,107 @@
 </section>
 
 <section class="section-wrap">
-  <h2>Videos</h2>
-  <p>Video documentation of the co-design sessions, user study, museum event, and live performance is being prepared (faces anonymized) and will be posted here.</p>
+  <h2>Public Live Performance</h2>
+  <p>
+    Six dancers performed with Encypher in front of an audience of approximately 300, with the screen removed and
+    each dancer's movement energy driving the stage light on their zone. Select a moment to jump to it; section
+    numbers refer to the paper.
+  </p>
+
+  <p id="chapter-description">
+    <strong>Select a moment</strong> to jump to that point in the performance. The description here updates as the video plays.
+  </p>
+
+  <div class="interactive-container">
+    <div>
+      <div class="video-card">
+        <video id="perf" controls playsinline preload="metadata" poster="images/performance_poster.jpg">
+          <source src="videos/performance.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <p class="video-note">Excerpt, edited for length: segments where the stage lighting failed have been removed. The whole frame is blurred to anonymize the dancers and audience.</p>
+    </div>
+    <div class="chapter-list" id="chapter-list"></div>
+  </div>
 </section>
 
 <footer>
   Anonymous submission · CHI 2027
 </footer>
+
+<script>
+  const ref = (s) => `<span class="paper-ref">Section ${s}</span>`;
+
+  const groups = [
+    { title: "Staggered Entries", chapters: [
+      { t: 0, label: "Solo opening",
+        html: `<strong>Solo opening:</strong> One dancer freestyles alone in the orange zone, carrying Afrohouse. The agreed structure was a staggered sequence of entries, beginning with Afrohouse and ending with dance jazz. Within that structure, all movement was improvised to the improvised music.<br>${ref("7.1: Setup")}` },
+      { t: 13, label: "Two elements blend",
+        html: `<strong>Two elements blend:</strong> A second dancer joins in the yellow zone with djembe, so that two musical elements blend. Each dancer's COMAmp is mapped to the weight of a prompt representing their assigned musical element, so the mix follows how each dancer moves.<br>${ref("4.2: Embodied Collaborative Steering")}` },
+      { t: 21, label: "First dancer steps out",
+        html: `<strong>First dancer steps out:</strong> The first dancer leaves the circle and the second carries on alone, and so on, building until every dancer is on stage and every element sounds together.<br>${ref("7.1: Setup")}` },
+      { t: 29, label: "One element per dancer",
+        html: `<strong>One element per dancer:</strong> The dancer in the blue zone carries the 808 drum machine. (The Hip-Hop dancer's entry, in the purple zone, fell in a segment removed for a lighting failure.) Each zone was pre-assigned a musical element (dance jazz, Afrohouse, djembe, Hip-Hop, 808 drum machine, and classical piano), matched where possible to the performing dancers' own interests and training, so that each carried an element close to their own style.<br>${ref("7.1: Setup")}` },
+      { t: 39, label: "Light as feedback",
+        html: `<strong>Light as feedback:</strong> The classical piano dancer enters the pink zone. The screen was removed entirely. Each dancer's COMAmp energy is sent over OSC to the venue's lighting console, which maps it to the intensity of that dancer's light. A dancer charging their zone brightens the pool of light they stand in, realizing the ambient-feedback direction that the museum event had only approximated.<br>${ref("7.1: Setup")}${ref("6: Public Museum Event")}` },
+    ]},
+    { title: "Filling the Cypher", chapters: [
+      { t: 61, label: "Five dancers on stage",
+        html: `<strong>Five dancers on stage:</strong> Afrohouse (orange), djembe (yellow), Hip-Hop (purple), 808 drum machine (blue), and classical piano (pink) now sound together. Without a screen there was no shared object to watch. Dancers oriented toward one another and toward the light at their feet, and the mutual attention that the screen had partly displaced during the user study was visibly restored.<br>${ref("7.2: Observations")}${ref("5.5: Qualitative Analysis")}` },
+      { t: 92, label: "Sixth dancer joins",
+        html: `<strong>Sixth dancer joins:</strong> The first author joins for the final section in the green zone, bringing in dance jazz, the last element of the sequence.<br>${ref("7.1: Setup")}` },
+    ]},
+    { title: "Everyone Together", chapters: [
+      { t: 113, label: "Every element sounding",
+        html: `<strong>Every element sounding:</strong> With all six dancers on stage and every element sounding, each dancer's style remained visible within the blended music rather than being flattened by it. Because each element matched its dancer's training, the staggered entries read as a meeting of dance backgrounds as much as of musical genres.<br>${ref("7.2: Observations")}` },
+      { t: 125, label: "Energy on the body",
+        html: `<strong>Energy on the body:</strong> The pools of colored light made each dancer's contribution legible to the audience in a way the screen never could, since energy showed up on the body itself.<br>${ref("7.2: Observations")}${ref("8.2: Mapping as Social Design")}` },
+      { t: 147, label: "Blackout",
+        html: `<strong>Blackout:</strong> The lights fade as the piece ends. In the live performance, the venue itself became part of the feedback loop, a direction we develop as a stage that listens to itself.<br>${ref("9: Limitations and Future Work")}` },
+    ]},
+  ];
+
+  const video = document.getElementById("perf");
+  const list = document.getElementById("chapter-list");
+  const desc = document.getElementById("chapter-description");
+  const chapters = [];
+  const fmt = (s) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
+
+  for (const g of groups) {
+    const group = document.createElement("div");
+    group.className = "chapter-group";
+    group.innerHTML = `<h4>${g.title}</h4>`;
+    for (const c of g.chapters) {
+      const btn = document.createElement("button");
+      btn.className = "time-btn";
+      btn.innerHTML = `<span class="timestamp">${fmt(c.t)}</span>${c.label}`;
+      btn.addEventListener("click", () => {
+        video.currentTime = c.t;
+        video.play();
+        show(c);
+      });
+      c.btn = btn;
+      chapters.push(c);
+      group.appendChild(btn);
+    }
+    list.appendChild(group);
+  }
+
+  let current = null;
+  function show(c) {
+    if (c === current) return;
+    if (current) current.btn.classList.remove("active");
+    current = c;
+    c.btn.classList.add("active");
+    desc.innerHTML = c.html;
+  }
+
+  video.addEventListener("timeupdate", () => {
+    let c = null;
+    for (const ch of chapters) if (ch.t <= video.currentTime + 0.25) c = ch;
+    if (c) show(c);
+  });
+</script>
 
 </body>
 </html>

@@ -217,3 +217,30 @@ footer {
   header h1 { font-size: 1.8rem; }
   header h2.paper-title { font-size: 1rem; }
 }
+
+/* ── Performance video ── */
+.video-card video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+  background: #000;
+}
+
+.video-note {
+  font-size: 0.82rem !important;
+  color: #888 !important;
+  margin-top: 10px;
+  line-height: 1.5 !important;
+}
+
+.paper-ref {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #1d4ed8;
+  background: #e3ebff;
+  border-radius: 999px;
+  padding: 1px 9px;
+  margin: 8px 6px 0 0;
+  white-space: nowrap;
+}
